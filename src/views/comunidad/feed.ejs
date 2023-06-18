@@ -1,0 +1,138 @@
+<!-- Feed: Alimento para la comunidad. Variables para que la ruta en feed.js pueda pintar a través de la DB las canciones -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+
+
+
+  
+  <%- include('../partials/head') %>
+
+</head>
+<body>
+
+  <!-- Para footer abajo -->
+  <div class="wrapper">
+
+    <%- include('../partials/navigation') %>     
+
+    <div class="container mt-5">
+      <h1 class="mb-4 text-custom1">Escucha los posts de los usuarios:</h1>
+
+      <% songs.reverse().forEach(function(user, songIndex, userArray) { %>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="d-flex align-items-center">
+              <img src="/upload/<%= user.username %>/<%= user.foto_filename %>" alt="Foto de perfil" class="img-thumbnail rounded-circle" style="max-width: 50px; height: auto;">
+              <p class="text-custom2 username-style mb-0 ms-2"><%= user.username %></p>
+            </div>
+          </div>
+        </div>
+
+        <% user.songs.forEach(function(song) { %>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-auto">
+                <img src="/img/corchea.jpg" alt="imgCorchea" class="img-fluid img-thumbnail" style="max-width: 150px; height: auto; margin-left: -12px !important;">
+              </div>
+              <div class="col-md">
+                <audio controls class="w-100">
+                  <source src="/upload/<%= user.username %>/<%= song.audio_filename %>" type="audio/mp3">
+                </audio>
+              </div>              
+            </div>
+          </div>
+          
+
+          <div class="row text-dark mb-3">
+            <div class="col-5 col-md-4">
+              <div class="col-md-8">
+                <p>Title: <%= song.title %></p>
+                <p>Description: <%= song.description %></p>
+                <p>Age: <%= user.age %></p>
+                <p>Gender: <%= user.gender %></p>
+                <p>Level: <%= user.level %></p>
+                <p>Availability: <%= user.availability %></p>
+              </div>
+            </div>
+            <div class="col-7 col-md-8">
+              <!-- Contacto -->
+              <section id="contacto" class="contacto seccion-oscura">
+                <div class="container">
+                  <div class="container text-center rectangulo d-flex justify-content-end">
+                    <div class="row">
+                      <div class="col-12 col-md-4 descripcion">
+                        ¡Hablemos!
+                      </div>
+                      <div class="col-12 col-md-4 descripcion">
+                        Contáctame para practicar juntos.
+                      </div>
+                      <div class="col-12 col-md-4">
+                        <div class="d-flex justify-content-end"> <!-- Agregar contenedor adicional con clase d-flex justify-content-end -->
+                          <a href="mailto:<%= user.email %>">
+                            <button type="button">
+                              Contacto
+                              <i class="bi bi-envelope-check-fill"></i>
+                            </button>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+          
+          
+          
+        <% }); %>
+
+        <% if (songIndex !== userArray.length - 1) { %>
+          <hr class="hr-custom"> <!-- Agregar línea horizontal después de cada bloque de canciones -->
+        <% } %>
+
+      <% }); %>
+
+      <hr class="hr-custom"> <!-- Agregar línea horizontal después de cada bloque de canciones -->
+
+
+
+    </div>
+
+    <!-- Botón flotante que permite ir al inicio de la página -->
+    <a href="#" class="btn btn-secondary btn-xxl btn-floating-lg fixed-bottom-right" id="scrollToTopBtn">
+      <i class="bi bi-arrow-up">Inicio</i>
+    </a>
+  </div> <!-- Fin de footer abajo -->
+
+  <%- include('../partials/footer') %>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+      window.addEventListener('scroll', function() {
+        var scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+        var windowHeight = window.innerHeight;
+
+        if (scrollPosition > windowHeight) {
+          scrollToTopBtn.classList.add('show');
+        } else {
+          scrollToTopBtn.classList.remove('show');
+        }
+      });
+
+      scrollToTopBtn.addEventListener('click', function(event) {
+        event.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+  </script>
+
+</body>
+</html>

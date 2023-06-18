@@ -1,0 +1,22 @@
+<!-- Para que lo muestre /profile -->
+
+<header class="headerProfile p-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="d-flex align-items-center">
+            <img src="/upload/<%= username %>/fotoUsuario" alt="Foto de perfil" class="img-thumbnail rounded-circle" style="max-width: 50px; height: auto;">
+            <p class="text-custom2 username-style mb-0 ms-2"><%= username %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  
+  <!-- Agregar el formulario de carga de foto -->
+  <form method="POST" action="/profile/photo" enctype="multipart/form-data" class="p-3">
+    <input type="file" name="fotoUsuario" accept="image/*" class="float-end">
+    <button type="submit" class="btn btn-primary float-end">Subir foto</button>
+  </form>
+  
+  

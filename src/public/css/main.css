@@ -1,0 +1,191 @@
+/*  Footer abajo  */
+
+.wrapper {
+  min-height: 100%;  
+}
+
+
+/*  Body  */
+
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background: rgba(21, 22, 23, 0.1);
+  color: white;
+}
+
+/*  Navbar  */
+
+.iconoMeetup {
+  width: 50px;
+}
+
+.imgDesarrollador {
+  width: 30px;  
+}
+
+.linkDesarrollador {
+  margin-top: 5px;
+}
+
+/*  MAIN  */
+
+/*  Container1  */
+
+.text-custom {
+  color: rgb(146, 5, 5);
+  font-size: 30px;
+}
+
+.custom-margin {
+  margin-right: 20px;
+}
+
+.container1 {
+  padding-top: 120px;
+}
+
+/*  Container2  */
+
+.text-custom1 {
+  color: rgba(23, 2, 12, 0.7);
+}
+
+.container2 p {
+  margin-left: 10px;
+}
+
+.container2 {
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+
+.imgGenteDivirtiéndose {
+  width: 200px;
+}
+
+.imgPartituras {
+  width: 200px;
+}
+
+/*  PROFILE  */
+
+.headerProfile {
+  background: rgba(21, 22, 23, 0.4);
+}
+
+
+/* 
+.headerProfile {
+  background-image: linear-gradient(to bottom right, #ff0000, #ff4d4d);
+}
+ */
+
+
+.backgroundProfile {
+  position: relative;
+  min-height: 100vh;
+}
+
+.backgroundProfile::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/img/fotoGuitar1.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+  opacity: 0.5; /* Cambia el valor de opacidad según sea necesario */
+}
+
+.container.p-4 {
+  position: relative;
+  z-index: 1;
+}
+
+.btnUneteComunidad {
+  background-color: rgb(146, 5, 5);
+  color: white;
+}
+
+/*  COMUNIDAD  */
+
+/* Boton ocupe ancho formulario */
+
+.stretch-width {
+  width: 100%;
+}
+
+/*    FEED    */
+
+.text-custom2 {
+  color: rgb(146, 5, 5);
+  font-size: 20px;
+}
+
+.fixed-bottom-right {
+  position: fixed;
+  bottom: 60px;
+  right: 20px;
+  z-index: 9999;
+  font-size: 2rem;
+  width: 100px;
+  height: 60px;
+}
+
+.hr-custom {
+  border-top: 4px solid rgb(146, 5, 5);
+}
+
+    /* FEED_contacto */
+
+
+.contacto .rectangulo {
+  background-color: rgba(21, 22, 23, 0.4);
+  border-radius: 10px;
+}
+
+
+.contacto .descripcion {
+  color: white;
+  font-size: 1.2rem;
+}
+
+.contacto button {
+  color: white;
+  font-weight: bold;
+  background-color: transparent;
+  border: 2px solid white;
+  padding: 1.25em 2em;
+  margin: 10px;
+  border-radius: 100px;
+  transition: all 0.2s ease-in-out;
+}
+
+.contacto button:hover {
+  background-color: white;
+  color: black;
+}
+
+.contacto button i {
+  color: white;
+  font-size: 1.3rem;
+  transition: all 02.2 ease-in-out;
+}
+
+.contacto button:hover i {
+  color: black;
+}
+
+
+/* 
+.username-style {
+  margin-left: -120px !important;
+}
+ */

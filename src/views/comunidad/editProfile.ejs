@@ -1,0 +1,103 @@
+<!-- Para que lo muestre /profile -->
+
+<header class="headerProfile p-3">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">        
+        <div class="d-flex align-items-center">
+          <img src="/upload/<%= user.username %>/<%= user.foto_filename %>" alt="Foto de perfil" class="img-thumbnail rounded-circle" style="max-width: 50px; height: auto;">
+          <p class="text-custom2 username-style mb-0 ms-2"><%= username %></p>
+        </div>        
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Agregar el formulario de carga de foto -->
+<form method="POST" action="/profile/edit/photo" enctype="multipart/form-data" class="p-3">
+  <input type="file" name="fotoUsuario" accept="image/*" class="float-end">
+  <button type="submit" class="btn btn-primary float-end">Subir foto</button>
+</form>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-8">
+      <table class="table table-dark table-bordered table-hover">
+        <thead>
+          <tr>
+            <td>username</td>
+            <td>fullname</td>
+            <td>email</td>
+            <td>availability</td>
+            <td>age</td>
+            <td>gender</td>
+            <td>level</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%= username %></td>
+            <td><%= fullname %></td>
+            <td><%= email %></td>
+            <td><%= availability %></td>
+            <td><%= age %></td>
+            <td><%= gender %></td>
+            <td><%= level %></td>
+          </tr>        
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-4">
+      <div class="card-body">
+        <form action="/profile/edit" method="POST">
+          <input
+            type="text"
+            name="newUsername"
+            placeholder="Nuevo username"
+            value="<%= username %>" 
+            class="form-control mb-2"
+            autofocus            
+          />
+
+          <button type="submit" class="btn btnUneteComunidad btn-block" id="editUserButton" disabled>Editar usuario</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Obtener referencia al campo de texto y al botón
+  const usernameInput = document.querySelector('input[name="newUsername"]');
+  const editUserButton = document.getElementById('editUserButton');
+
+  // Habilitar o deshabilitar el botón según el valor del campo de texto. Evita que se borre por accidente.
+  const toggleEditUserButton = () => {
+    editUserButton.disabled = usernameInput.value.trim() === '';
+  };
+
+  // Escuchar el evento "input" en el campo de texto
+  usernameInput.addEventListener('input', toggleEditUserButton);
+
+  // Inicialmente, deshabilitar el botón si el campo de texto está vacío
+  toggleEditUserButton();
+
+  // Obtener referencia al contenedor donde se mostrará el formulario
+  const formContainer = document.getElementById('formContainer');
+
+  // Función para mostrar el formulario mediante Fetch
+  const showUploadPhotoForm = () => {
+    fetch('/uploadPhotoForm')
+      .then(response => response.text())
+      .then(data => {
+        formContainer.innerHTML = data;
+      })
+      .catch(error => {
+        console.error('Error al obtener el formulario:', error);
+      });
+  };
+
+  // Escuchar el evento click en el botón "Subir foto"
+  const uploadPhotoButton = document.getElementById('uploadPhotoButton');
+  uploadPhotoButton.addEventListener('click', showUploadPhotoForm);
+</script>

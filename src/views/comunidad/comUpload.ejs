@@ -1,0 +1,68 @@
+<!-- Formulario para compartir datos en la comunidad -->
+<% if (!showForm) { %>
+    <div class="container p-4">
+      <div class="row">
+        <div class="col-md-7">
+          <div class="card text-center">
+            <div class="card-header">
+              <h3>Sube tu canción</h3>
+            </div>
+            <div class="card-body">
+              <form method="POST" action="/upload" enctype="multipart/form-data">
+                <div class="form-group">
+                  <input
+                    type="file"
+                    name="audioUsuario"
+                    class="form-control mb-3"
+                    required
+                  />
+                </div>
+  
+                <div class="form-group">
+                  <input
+                    type="text"
+                    name="title"
+                    class="form-control mb-3"
+                    placeholder="Título de la canción"
+                    required
+                  />
+                </div>
+  
+                <div class="form-group">
+                  <textarea
+                    name="description"
+                    rows="2"
+                    class="form-control mb-3"
+                    placeholder="Descripción de la canción"
+                    style="resize: none;"
+                    required
+                  ></textarea>
+                </div>
+
+                 
+                <div class="form-group">
+                  <button class="btn btn-secondary btn-block">
+                    Sube tu canción
+                  </button>
+                  <% if(mensaje) { %>
+                      <h5 class="text-success mt-3"><%= mensaje %></h5>
+                  <% } %>
+                
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5">          
+          <img src="img/chicaGuitarraAlapiz.jpg" class="img-fluid" alt="chicaGuitarra">          
+        </div>
+      </div>
+    </div>
+  <% } %>
+  
+
+  
+<% if (message && !showForm) { %>
+       
+<% } %>
+  

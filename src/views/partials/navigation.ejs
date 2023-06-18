@@ -1,0 +1,83 @@
+<!-- Nav Meetup Guitar -->
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <div class="container-fluid">
+    <div class="navLeft">
+      <a class="navbar-brand" href="/">Meetup Guitar <span><img src="/img/iconoMeetup.png" alt="iconoMeetup" class="iconoMeetup"></span></a>      
+    </div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav ms-auto d-flex align-items-center">        
+        <a class="nav-link" href="/">Home</a>
+
+
+
+        <% if (showProfileLink) { %>
+          <a class="nav-link" href="/comunidad">Feed Comunidad</a>
+        <% } %>
+
+
+
+
+        <% if (showProfileLink) { %>
+          <a class="nav-link" href="/feed">Feed</a>
+        <% } %>
+
+
+
+
+        <% if (!showProfileLink) { %>
+        <a class="nav-link" href="/signup">Registrarse</a>
+        <% } %>
+
+
+        
+
+        <% if (!showProfileLink) { %>
+        <a class="nav-link" href="/signin">Iniciar Sesion</a>
+        <% } %>
+
+
+
+
+
+        <% if (typeof username !== 'undefined') { %>
+        <% if (showProfileLink) { %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <%= username %>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="profileDropdown">
+              <li><a class="dropdown-item" href="/profile">Perfil</a></li>
+              <li><a class="dropdown-item" href="/">Home</a></li>
+              <li><a class="dropdown-item" href="/comunidad">Feed Comunidad</a></li>
+              <li><a class="dropdown-item" href="/feed">feed</a></li>
+            </ul>
+          </li>
+        <% } %>
+        <% } %>
+        
+        
+
+        <% if (showProfileLink) { %>        
+        <a class="nav-link" href="/logout">Finalizar Sesion</a>
+        <% } %>
+        
+
+
+
+        <a class="nav-link linkDesarrollador" href="/portafolioIndexIsra">Desarrollador <span><img src="/img/iconoIsra.gif" alt="iconoIsra" class="imgDesarrollador"></span></a>        
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+
+
+
+

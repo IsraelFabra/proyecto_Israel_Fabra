@@ -1,0 +1,42 @@
+
+<!-- Formulario para match -->
+<div class="container text-custom">
+  <% if (showForm) { %>
+  <div class="row">
+    <div class="col-6">
+      <form class="needs-validation" novalidate id="matchForm" action="/comunidad" method="POST">
+        <!-- contenido del formulario -->
+        <div class="mt-3">
+          <label for="age" class="form-label">Edad</label>
+          <input type="number" class="form-control" id="age" name="age" required>
+        </div>
+        <div class="mb-3">
+          <label for="gender" class="form-label">Género</label>
+          <select class="form-select" id="gender" name="gender" required>
+            <option value="">Seleccionar género</option>
+            <option value="masculino">Masculino</option>
+            <option value="femenino">Femenino</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="level" class="form-label">Nivel de guitarra</label>
+          <select class="form-select" id="level" name="level" required>
+            <option value="">Seleccionar nivel</option>
+            <option value="principiante">Principiante</option>
+            <option value="medio">Medio</option>
+            <option value="avanzado">Avanzado</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="availability" class="form-label">Disponibilidad</label>
+          <textarea class="form-control" id="availability" name="availability" rows="3" style="resize: none;" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-secondary stretch-width mb-3">Enviar</button>
+      </form>
+    </div>
+    <div class="col-6">
+      <img src="img/chicaGuitarraAlapiz.jpg" class="img-fluid" alt="chicaGuitarra">
+    </div>
+  </div>
+  <% } %>
+</div>

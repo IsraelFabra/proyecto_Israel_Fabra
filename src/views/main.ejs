@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title><%= title %></title>
+   <%- include('partials/head') %>
+</head>
+
+<!--  Para footer abajo -->
+<div class="wrapper"> 
+
+
+<body>
+
+  <%- include('partials/navigation') %>
+
+<!--  MAIN CONTENT -->
+
+<!--  Container1 -->
+<div class="container1 d-flex justify-content-center align-items-center">
+  <div class="d-flex flex-row justify-content-center align-items-center row">    
+    <h1 class="text-center text-uppercase fw-bold custom-margin text-custom col-sm-4 col-md-4">Tu plataforma de guitarra</h1>
+    <img src="/img/fotoGuitar1.jpg" alt="fotoGuitar1" class="w-50 col-sm-8 col-md-8">    
+  </div>
+</div>
+
+<!--  Container2 -->
+<div class="container2 d-flex justify-content-around align-items-center mx-auto">
+  <div class="row justify-content-between">
+    <div class="pb-2 col-sm-12 col-md-4 mb-4">
+      <p class="text-center text-custom1">Aquí podrás encontrar gente con quien compartir tu afición por la guitarra. Desde principiantes a avanzados. No dudes en registrarte y <span class="text-danger">¡disfruta!</span></p>
+    </div>
+
+    <div class="pb-4 col-sm-12 col-md-4 d-flex flex-column justify-content-center align-items-center mb-4">
+      <img src="/img/genteDivirtiéndose.jpg" alt="genteDivirtiéndose" class="imgGenteDivirtiéndose">
+      <a href="#" class="mt-2 btn btn-secondary">Social</a>
+    </div>
+
+    <div class="pb-4 col-sm-12 col-md-4 d-flex flex-column justify-content-center align-items-center mb-4">
+      <img src="/img/partituras.jpg" alt="partituras" class="imgPartituras">
+      <a href="#" class="mt-2 btn btn-secondary">Docs</a>
+    </div>
+  </div>
+</div>
+
+
+
+</div> <!-- Fin de footer abajo -->
+
+  <%- include('partials/footer') %>
+
+</body>
+</html>
