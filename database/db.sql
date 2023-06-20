@@ -1,7 +1,13 @@
 DROP SCHEMA IF EXISTS db_links;
+DROP SCHEMA IF EXISTS db_links;
+
 CREATE DATABASE db_links;
+CREATE DATABASE apiGuitarra;
+
 
 USE db_links;
+USE apiGuitarra;
+
 
 
 -- USERS TABLE

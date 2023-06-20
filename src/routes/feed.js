@@ -18,11 +18,13 @@ router.get('/feed', isLoggedIn, async (req, res) => {
   try {
     // Obtener las canciones subidas por los usuarios desde la base de datos
     const sql = `
-    SELECT audio.audio_filename, users.username, users.foto_filename, users.age, users.gender, users.level, users.availability
+    SELECT audio.title, audio.description, audio.audio_filename, users.username, users.foto_filename, users.age, users.gender, users.level, users.availability
     FROM audio
     INNER JOIN users ON audio.userId = users.id
-    ORDER BY users.username
-`;  const songs = await pool.query(sql);
+    ORDER BY users.id ASC
+`;  
+
+  const songs = await pool.query(sql);
 
   const users = songs.reduce((acc, song) => {
     const existingUser = acc.find(user => user.username === song.username);
@@ -33,6 +35,8 @@ router.get('/feed', isLoggedIn, async (req, res) => {
         username: song.username,
         foto_filename: song.foto_filename,
         songs: [song],
+        title: song.title,
+        description: song.description,
         age: song.age,
         gender: song.gender,
         level: song.level,

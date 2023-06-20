@@ -63,14 +63,20 @@ const storage = multer.diskStorage({
         if (error) {
           console.error('Error al guardar el nombre del archivo de foto en la base de datos:', error);
         }
-        // Aquí se puede realizar cualquier acción adicional después de guardar el nombre del archivo en la base de datos
       });
     } else {
+      const audioExtension = path.extname(file.originalname);
+      const allowedExtensions = ['.mp3', '.wav', '.aac']; // Agrega aquí las extensiones de audio permitidas
+
+      if (!allowedExtensions.includes(audioExtension)) {
+        return cb(new Error('El archivo debe ser un archivo de audio válido.'));
+      }
+
       const audioFilename = Date.now() + path.extname(file.originalname);
       cb(null, audioFilename);
 
       // Guardar el nombre del archivo en la base de datos
-      const userId = req.user.id; // Suponiendo que tienes el ID del usuario disponible en req.user.id
+      const userId = req.user.id; // El ID del usuario disponible en req.user.id
       const sql = 'INSERT INTO audio (userId, audio_filename) VALUES (?, ?)';
       const values = [userId, audioFilename];
 
@@ -79,7 +85,6 @@ const storage = multer.diskStorage({
         if (error) {
           console.error('Error al guardar el nombre del archivo de audio en la base de datos:', error);
         }
-        // Aquí se puede realizar cualquier acción adicional después de guardar el nombre del archivo en la base de datos
       });
     }
   }

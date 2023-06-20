@@ -44,7 +44,7 @@ router.post('/comunidad', isLoggedIn, async (req, res) => {
         age,
         gender,
         level,
-        availability,
+        availability,        
         formulario_completado: true
       };
 

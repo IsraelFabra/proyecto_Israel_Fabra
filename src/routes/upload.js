@@ -12,9 +12,10 @@ const { isLoggedIn } = require('../lib/auth'); //Si no estás logueado te devuel
 
 
 // Ruta para que muestre: 'mensaje: 'Canción subida exitosamente!'
-
 router.post('/upload', isLoggedIn, async (req, res) => {
   const { username } = req.user;
+  const { title, description } = req.body;
+
 
   try {
 
@@ -22,9 +23,12 @@ router.post('/upload', isLoggedIn, async (req, res) => {
 
 
     // Actualizar título y descripción en la tabla audio
-    //await pool.query('UPDATE audio SET title = ?, description = ? WHERE userId = ?', [title, description, req.user.id]);
 
-
+/*      await pool.query('INSERT INTO audio (userId, audio_filename, title, description) VALUES (?, ?, ?, ?)', [req.user.id, req.files['audioUsuario'][0].filename, title, description]);
+    console.log('Title:', req.body.title);
+    console.log('Description:', req.body.description);
+ */   
+    
     
 
 
